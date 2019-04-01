@@ -1,6 +1,7 @@
 import React, {
     Component
 } from 'react';
+import ChosenItem from '../chosenItem/ChosenItem'
 
 export default class ShoppingCart extends Component {
     render() {
@@ -11,9 +12,7 @@ export default class ShoppingCart extends Component {
                 {this.props.chosenItems.map((item, index) => {
                     return (
                         <div key={index}>
-                            <h2>{item.title}</h2>
-                            <img src={item.thumbnailUrl} alt="" />
-                            <p>Price: {item.id}</p>
+                            <ChosenItem {...item} key={index} />
                         </div>
                     )
                 })}

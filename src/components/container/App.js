@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import './App.css';
 import ShoppingItem from '../shoppingItem/ShoppingItem';
-import ShoppingCart from '../ShoppingCart/ShoppingCart'
+import ShoppingCart from '../shoppingCart/ShoppingCart'
 
 class App extends Component {
   state = {

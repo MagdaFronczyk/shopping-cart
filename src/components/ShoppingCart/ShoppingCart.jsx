@@ -4,15 +4,15 @@ import React, {
 import ChosenItem from '../chosenItem/ChosenItem'
 
 export default class ShoppingCart extends Component {
+
     render() {
-        console.log(this.props.chosenItems)
         return (
             <div>
-                MY CART:
+                <h2>MY CART:</h2>
                 {this.props.chosenItems.map((item, index) => {
                     return (
-                        <div key={index}>
-                            <ChosenItem {...item} key={index} />
+                        <div key={index} className="shopping-cart-container">
+                            <ChosenItem {...item} key={index} handleRemoveFromCart={this.props.handleRemoveFromCart} />
                         </div>
                     )
                 })}

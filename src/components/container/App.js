@@ -17,14 +17,22 @@ class App extends Component {
     })
   };
 
+  removeFromCart = (item) => {
+    this.setState({
+      chosenItems: this.state.chosenItems.filter(itemInCart => itemInCart.id !== item.id)
+    })
+  }
+
   render() {
-    console.log(this.state.chosenItems);
     return (
       <div className="App" >
-        {this.state.data.slice(0, 10).map((item, index) => {
-          return < ShoppingItem {...item} key={index} handleAddToCart={this.addToCart} />
-        })}
-        <ShoppingCart {...this.state} />
+        <div className="shopping-items-container">
+          <h2>SHOPPING ITEMS:</h2>
+          {this.state.data.slice(0, 10).map((item, index) => {
+            return < ShoppingItem {...item} key={index} handleAddToCart={this.addToCart} />
+          })}
+        </div>
+        <ShoppingCart {...this.state} handleRemoveFromCart={this.removeFromCart} />
       </div>
     );
   };

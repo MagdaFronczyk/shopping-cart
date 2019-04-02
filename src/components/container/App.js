@@ -19,7 +19,7 @@ class App extends Component {
 
   removeFromCart = (item) => {
     this.setState({
-      chosenItems: this.state.chosenItems.filter(itemInCart => itemInCart.id !== item.id)
+      chosenItems: this.state.chosenItems.filter((itemInCart, index, array) => array.indexOf(itemInCart) !== array.indexOf(item))
     })
   }
 

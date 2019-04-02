@@ -3,13 +3,13 @@ import React, {
 } from 'react';
 
 export default class ShoppingItem extends Component {
+
     state = {
         chosenItems: []
-    };
+    }
 
     addToCart = (item) => {
         this.props.handleAddToCart(item)
-        console.log(item)
     };
 
     render() {

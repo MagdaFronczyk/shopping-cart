@@ -1,8 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/container/App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import ProductList from "./components/productsList/ProductList";
+import { Provider } from "react-redux";
+import store from './js/store/index'
 
-ReactDOM.render( < App / > , document.getElementById('root'));
-serviceWorker.unregister();
+function App() {
+    return (
+        <div className="App">
+            <ProductList />
+        </div>
+    );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    rootElement
+);

@@ -1,23 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeItemFromCart } from "../../js/actions/index";
+import Product from "../product/Product";
 
 class Cart extends React.Component {
-  removeFromCart = (item) => {
-    this.props.dispatch(removeItemFromCart(item))
-  }
 
   render() {
     const { itemsChosen } = this.props;
     return (
       <div>
         <h2>Cart</h2>
-        {itemsChosen.map(item => {
+        {itemsChosen.map((item, index) => {
           return (
-            <ul>
-              <li>{item.title}</li>
-              <button onClick={() => this.removeFromCart(item)}>Remove</button>
-            </ul>
+            <Product {...item} key={index} />
           )
         })}
       </div>

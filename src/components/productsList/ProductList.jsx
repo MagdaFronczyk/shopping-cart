@@ -1,14 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchProducts, addItemToCart } from "../../js/actions/index";
+import { fetchProducts } from "../../js/actions/index";
+import Product from "../product/Product";
 
 class ProductList extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchProducts());
-    }
-
-    addItemToCart = (product) => {
-        this.props.dispatch(addItemToCart(product))
     }
 
     render() {
@@ -25,14 +22,13 @@ class ProductList extends React.Component {
         }
 
         return (
-            <ul>
-                {products.slice(0, 10).map(product => (
-                    <div>
-                        <li key={product.id}>{product.title}</li>
-                        <button onClick={() => this.addItemToCart(product)}>Add</button>
-                    </div>
+            <div>
+                {products.slice(0, 10).map((product, index) => (
+
+                    <Product {...product} key={index} />
+
                 ))}
-            </ul>
+            </div>
         );
     }
 }

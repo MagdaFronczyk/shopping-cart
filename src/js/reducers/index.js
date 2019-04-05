@@ -42,12 +42,12 @@ export default function productReducer(
         case ADD_TO_CART:
             return {
                 ...state,
-                itemsChosen: state.itemsChosen.concat(action.payload.itemAdded)
+                itemsChosen: [...state.itemsChosen, action.payload.itemAdded]
             };
         case REMOVE_FROM_CART:
             return {
                 ...state,
-                itemsChosen: state.itemsChosen.filter((itemInCart, index, array) => array.indexOf(itemInCart) !== array.indexOf(action.payload.itemRemoved))
+                itemsChosen: state.itemsChosen.filter(itemChosen => itemChosen.id !== action.payload.itemRemoved.id)
             };
         default:
             return state;

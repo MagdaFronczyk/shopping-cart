@@ -1,13 +1,16 @@
 import {
     FETCH_PRODUCTS_BEGIN,
     FETCH_PRODUCTS_SUCCESS,
-    FETCH_PRODUCTS_FAILURE
+    FETCH_PRODUCTS_FAILURE,
+    ADD_TO_CART,
+    REMOVE_FROM_CART,
 } from "../constants/action-types";
 
 const initialState = {
     items: [],
     loading: false,
-    error: null
+    error: null,
+    itemsChosen: []
 };
 
 export default function productReducer(
@@ -36,7 +39,16 @@ export default function productReducer(
                 error: action.payload.error,
                 items: []
             };
-
+        case ADD_TO_CART:
+            return {
+                ...state,
+                itemsChosen: state.itemsChosen.concat(action.payload.itemAdded)
+            };
+        case REMOVE_FROM_CART:
+            return {
+                ...state,
+                itemsChosen: state.itemsChosen.filter((itemInCart, index, array) => array.indexOf(itemInCart) !== array.indexOf(action.payload.itemRemoved))
+            };
         default:
             return state;
     }

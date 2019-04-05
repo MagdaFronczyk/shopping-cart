@@ -1,7 +1,9 @@
 import {
     FETCH_PRODUCTS_BEGIN,
     FETCH_PRODUCTS_SUCCESS,
-    FETCH_PRODUCTS_FAILURE
+    FETCH_PRODUCTS_FAILURE,
+    ADD_TO_CART,
+    REMOVE_FROM_CART
 } from '../constants/action-types'
 
 function getProducts() {
@@ -24,7 +26,6 @@ export function fetchProducts() {
     };
 }
 
-// Handle HTTP errors since fetch won't.
 function handleErrors(response) {
     if (!response.ok) {
         throw Error(response.statusText);
@@ -47,5 +48,19 @@ export const fetchProductsFailure = error => ({
     type: FETCH_PRODUCTS_FAILURE,
     payload: {
         error
+    }
+});
+
+export const addItemToCart = itemAdded => ({
+    type: ADD_TO_CART,
+    payload: {
+        itemAdded
+    }
+});
+
+export const removeItemFromCart = itemRemoved => ({
+    type: REMOVE_FROM_CART,
+    payload: {
+        itemRemoved
     }
 });

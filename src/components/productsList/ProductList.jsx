@@ -9,8 +9,6 @@ class ProductList extends React.Component {
     }
 
     render() {
-
-        console.log(this.props.itemsChosen)
         const { error, loading, products } = this.props;
 
         if (error) {
@@ -24,9 +22,7 @@ class ProductList extends React.Component {
         return (
             <div>
                 {products.slice(0, 10).map((product, index) => (
-
                     <Product {...product} key={index} />
-
                 ))}
             </div>
         );

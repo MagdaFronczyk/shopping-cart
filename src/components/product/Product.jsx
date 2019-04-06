@@ -9,7 +9,7 @@ class Product extends React.Component {
 
   removeFromCart = (item) => {
     this.props.dispatch(removeItemFromCart(item))
-    // console.log("Dzialam", item, this.props.itemsChosen.indexOf(item))
+    console.log("Dzialam", item, this.props.itemsChosen.findIndex(item => item.id), this.props.itemsChosen)
   }
 
   render() {

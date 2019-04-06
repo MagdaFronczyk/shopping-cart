@@ -47,7 +47,8 @@ export default function productReducer(
         case REMOVE_FROM_CART:
             return {
                 ...state,
-                itemsChosen: state.itemsChosen.filter(itemChosen => itemChosen.id !== action.payload.itemRemoved.id)
+                // itemsChosen: state.itemsChosen.filter(itemChosen => itemChosen.id !== action.payload.itemRemoved.id),
+                itemsChosen: state.itemsChosen.filter((itemChosen, index, array) => array.findIndex(item => item.id === action.payload.itemRemoved.id) !== index)
             };
         default:
             return state;

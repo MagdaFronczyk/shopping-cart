@@ -4,13 +4,15 @@ import {
     FETCH_PRODUCTS_FAILURE,
     ADD_TO_CART,
     REMOVE_FROM_CART,
+    ADD_PRICES
 } from "../constants/action-types";
 
 const initialState = {
     items: [],
     loading: false,
     error: null,
-    itemsChosen: []
+    itemsChosen: [],
+    sum: 0
 };
 
 export default function productReducer(
@@ -47,8 +49,13 @@ export default function productReducer(
         case REMOVE_FROM_CART:
             return {
                 ...state,
-                // itemsChosen: state.itemsChosen.filter(itemChosen => itemChosen.id !== action.payload.itemRemoved.id),
                 itemsChosen: state.itemsChosen.filter((itemChosen, index, array) => array.findIndex(item => item.id === action.payload.itemRemoved.id) !== index)
+            };
+        case ADD_PRICES:
+            return {
+                ...state,
+                // sum: state.sum + action.payload.itemAdded.id,
+                sum: state.itemsChosen.reduce((sum, curr) => sum + curr.id, 0)
             };
         default:
             return state;

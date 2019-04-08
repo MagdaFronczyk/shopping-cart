@@ -2,10 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchProducts } from "../../js/actions/index";
 import Product from "../product/Product";
+import { addItemToCart, addPrices } from "../../js/actions/index";
+
 
 class ProductList extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchProducts());
+    }
+
+    addItemToCart = (product) => {
+        this.props.dispatch(addItemToCart(product));
+    }
+
+    addPrices = (product) => {
+        this.props.dispatch(addPrices(product))
+        console.log(this.props.sum, this.props.itemsChosen)
     }
 
     render() {
@@ -22,7 +33,7 @@ class ProductList extends React.Component {
         return (
             <div>
                 {products.slice(0, 10).map((product, index) => (
-                    <Product {...product} key={index} />
+                    <Product {...product} key={index} text="Add" onClick={() => { this.addItemToCart(product); this.addPrices(product) }} />
                 ))}
             </div>
         );
@@ -33,7 +44,8 @@ const mapStateToProps = state => ({
     products: state.products.items,
     loading: state.products.loading,
     error: state.products.error,
-    itemsChosen: state.products.itemsChosen
+    itemsChosen: state.products.itemsChosen,
+    sum: state.products.sum
 });
 
 export default connect(mapStateToProps)(ProductList);

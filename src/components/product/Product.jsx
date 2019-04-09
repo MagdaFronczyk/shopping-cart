@@ -1,5 +1,5 @@
 import React from "react";
-// iport PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Product = ({ title, thumbnailUrl, id, onClick, text }) => (
   <div>
@@ -9,5 +9,13 @@ const Product = ({ title, thumbnailUrl, id, onClick, text }) => (
     <button onClick={onClick}>{text}</button>
   </div>
 )
+
+Product.propTypes = {
+  title: PropTypes.string,
+  thumbnailUrl: PropTypes.string,
+  id: PropTypes.number,
+  onClick: PropTypes.func,
+  text: PropTypes.string
+}
 
 export default Product;

@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Product from "../product/Product";
 import { removeItemFromCart, detractPrice } from "../../js/actions/index";
+import PropTypes from 'prop-types';
 
 class Cart extends React.Component {
 
@@ -35,5 +36,10 @@ const mapStateToProps = state => ({
   itemsChosen: state.products.itemsChosen,
   sum: state.products.sum
 });
+
+Cart.propTypes = {
+  itemsChosen: PropTypes.array,
+  sum: PropTypes.number
+}
 
 export default connect(mapStateToProps)(Cart);

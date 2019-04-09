@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchProducts } from "../../js/actions/index";
 import Product from "../product/Product";
 import { addItemToCart, addPrices } from "../../js/actions/index";
+import PropTypes from 'prop-types';
 
 
 class ProductList extends React.Component {
@@ -42,7 +43,13 @@ class ProductList extends React.Component {
 const mapStateToProps = state => ({
     products: state.products.items,
     loading: state.products.loading,
-    error: state.products.error,
+    error: state.products.error
 });
+
+ProductList.propTypes = {
+    products: PropTypes.array,
+    loading: PropTypes.bool,
+    error: PropTypes.string
+}
 
 export default connect(mapStateToProps)(ProductList);

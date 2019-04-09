@@ -1,12 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import Product from "../product/Product";
-import { removeItemFromCart, addPrices } from "../../js/actions/index";
+import { removeItemFromCart, detractPrice } from "../../js/actions/index";
 
 class Cart extends React.Component {
 
   removeFromCart = (item) => {
     this.props.dispatch(removeItemFromCart(item));
+  }
+
+  detractPrice = (item) => {
+    this.props.dispatch(detractPrice(item));
   }
 
   render() {
@@ -16,7 +20,7 @@ class Cart extends React.Component {
         <h2>Cart</h2>
         {itemsChosen.map((item, index) => {
           return (
-            <Product {...item} key={index} text="Remove" onClick={() => this.removeFromCart(item)} />
+            <Product {...item} key={index} text="Remove" onClick={() => { this.removeFromCart(item); this.detractPrice(item) }} />
           )
         })}
         <div>
@@ -28,9 +32,6 @@ class Cart extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.products.items,
-  loading: state.products.loading,
-  error: state.products.error,
   itemsChosen: state.products.itemsChosen,
   sum: state.products.sum
 });

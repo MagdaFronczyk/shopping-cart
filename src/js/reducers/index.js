@@ -4,7 +4,8 @@ import {
     FETCH_PRODUCTS_FAILURE,
     ADD_TO_CART,
     REMOVE_FROM_CART,
-    ADD_PRICES
+    ADD_PRICES,
+    DETRACT_PRICE
 } from "../constants/action-types";
 
 const initialState = {
@@ -54,8 +55,12 @@ export default function productReducer(
         case ADD_PRICES:
             return {
                 ...state,
-                // sum: state.sum + action.payload.itemAdded.id,
-                sum: state.itemsChosen.reduce((sum, curr) => sum + curr.id, 0)
+                sum: state.itemsChosen.reduce((sum, curr) => sum + curr.id, 0),
+            };
+        case DETRACT_PRICE:
+            return {
+                ...state,
+                sum: state.sum - action.payload.itemRemoved.id
             };
         default:
             return state;

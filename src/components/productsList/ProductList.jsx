@@ -16,7 +16,6 @@ class ProductList extends React.Component {
 
     addPrices = (product) => {
         this.props.dispatch(addPrices(product))
-        console.log(this.props.sum, this.props.itemsChosen)
     }
 
     render() {
@@ -44,8 +43,6 @@ const mapStateToProps = state => ({
     products: state.products.items,
     loading: state.products.loading,
     error: state.products.error,
-    itemsChosen: state.products.itemsChosen,
-    sum: state.products.sum
 });
 
 export default connect(mapStateToProps)(ProductList);

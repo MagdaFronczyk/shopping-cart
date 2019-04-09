@@ -4,7 +4,8 @@ import {
     FETCH_PRODUCTS_FAILURE,
     ADD_TO_CART,
     REMOVE_FROM_CART,
-    ADD_PRICES
+    ADD_PRICES,
+    DETRACT_PRICE
 } from '../constants/action-types'
 
 function getProducts() {
@@ -70,5 +71,12 @@ export const addPrices = itemAdded => ({
     type: ADD_PRICES,
     payload: {
         itemAdded
+    }
+});
+
+export const detractPrice = itemRemoved => ({
+    type: DETRACT_PRICE,
+    payload: {
+        itemRemoved
     }
 });

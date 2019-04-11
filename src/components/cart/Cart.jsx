@@ -19,9 +19,9 @@ class Cart extends React.Component {
     return (
       <div>
         <h2>Cart</h2>
-        {itemsChosen.map((item, index) => {
+        {itemsChosen.filter((el, index) => itemsChosen.indexOf(el) === index).map((item, index) => {
           return (
-            <Product {...item} key={index} text="Remove" onClick={() => { this.removeFromCart(item); this.detractPrice(item) }} />
+            <Product {...item} key={index} text="Remove" onClick={() => { this.removeFromCart(item); this.detractPrice(item) }} numberOfProducts={this.props.itemsChosen.filter(productChosen => productChosen.id === item.id).length} />
           )
         })}
         <div>

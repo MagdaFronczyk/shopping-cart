@@ -33,7 +33,7 @@ class ProductList extends React.Component {
         return (
             <div>
                 {products.slice(0, 10).map((product, index) => (
-                    <Product {...product} key={index} text="Add" onClick={() => { this.addItemToCart(product); this.addPrices(product) }} />
+                    <Product {...product} key={index} text="Add" onClick={() => { this.addItemToCart(product); this.addPrices(product) }} numberOfProducts={this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length} />
                 ))}
             </div>
         );
@@ -43,7 +43,8 @@ class ProductList extends React.Component {
 const mapStateToProps = state => ({
     products: state.products.items,
     loading: state.products.loading,
-    error: state.products.error
+    error: state.products.error,
+    itemsChosen: state.products.itemsChosen
 });
 
 ProductList.propTypes = {

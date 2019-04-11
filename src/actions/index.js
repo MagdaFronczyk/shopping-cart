@@ -9,7 +9,7 @@ import {
 } from '../constants/action-types'
 
 function getProducts() {
-    return fetch("https://jsonplaceholder.typicode.com/photos")
+    return fetch("https://api.myjson.com/bins/10fhy0")
         .then(handleErrors)
         .then(res => res.json());
 }

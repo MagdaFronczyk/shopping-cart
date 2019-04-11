@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchProducts } from "../../js/actions/index";
+import { fetchProducts } from "../../actions/index";
 import Product from "../product/Product";
-import { addItemToCart, addPrices } from "../../js/actions/index";
+import { addItemToCart, addPrices } from "../../actions/index";
 import PropTypes from 'prop-types';
 
 
@@ -32,7 +32,7 @@ class ProductList extends React.Component {
 
         return (
             <div>
-                {products.slice(0, 10).map((product, index) => (
+                {products.map((product, index) => (
                     <Product {...product} key={index} text="Add" onClick={() => { this.addItemToCart(product); this.addPrices(product) }} numberOfProducts={this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length} />
                 ))}
             </div>

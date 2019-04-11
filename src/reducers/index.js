@@ -55,12 +55,12 @@ export default function productReducer(
         case ADD_PRICES:
             return {
                 ...state,
-                sum: state.itemsChosen.reduce((sum, curr) => sum + curr.id, 0),
+                sum: state.itemsChosen.reduce((sum, curr) => sum + curr.price, 0),
             };
         case DETRACT_PRICE:
             return {
                 ...state,
-                sum: state.sum - action.payload.itemRemoved.id
+                sum: state.sum - action.payload.itemRemoved.price
             };
         default:
             return state;

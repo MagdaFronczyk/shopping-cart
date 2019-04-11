@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Product from "../product/Product";
-import { removeItemFromCart, detractPrice } from "../../js/actions/index";
+import { removeItemFromCart, detractPrice } from "../../actions/index";
 import PropTypes from 'prop-types';
 
 class Cart extends React.Component {

@@ -1,0 +1,66 @@
+const loveUAlaskaT = [{
+    id: 0,
+    name: 'TC 2017 LS',
+    description: 'xxx',
+    price: 34.95,
+    count: 12,
+    img: 'https://cdn.shopify.com/s/files/1/1450/6394/products/STX10002_black_Tee_large.png?v=1483066863',
+}, {
+    id: 1,
+    name: 'TC 2017 Shorts',
+    description: 'xxx',
+    price: 25.00,
+    count: 7,
+    img: 'https://d2h1pu99sxkfvn.cloudfront.net/b0/3717715/397848738_GXnJflW0bP/P6.jpg',
+}, {
+    id: 2,
+    name: 'TC 2016 Red SS',
+    description: 'xxx',
+    price: 74.00,
+    count: 11,
+    img: 'https://mywishcard.com/s/i2/30/5/470x0_3a5u86pDWeGeTjngtRJLXMeP1k7RP66v___jpg____4_bb7cac9e.jpg',
+}, {
+    id: 3,
+    name: 'TC 2016 Dark SS',
+    description: 'xxx',
+    price: 35.99,
+    count: 13,
+    img: 'https://cdn.shopify.com/s/files/1/1450/6394/products/DTX10006_Black_53be36a1-407e-43ca-bc7b-7deb60ebe801_large.png?v=1500656788',
+}, {
+    id: 4,
+    name: 'TC 2016 Light SS',
+    description: 'xxx',
+    price: 35.99,
+    count: 16,
+    img: 'https://cdn.shopify.com/s/files/1/1450/6394/products/BR10004-2_large.jpg?v=1479123382',
+}, {
+    id: 5,
+    name: 'Goat Shorts',
+    description: 'xxx',
+    price: 29.00,
+    count: 4,
+    img: 'https://cdn.shopify.com/s/files/1/1450/6394/products/BR10009-2_large.jpg?v=1479123486',
+}, {
+    id: 6,
+    name: 'Friction Gloves',
+    description: 'xxx',
+    price: 33.95,
+    count: 18,
+    img: 'https://cdn.shopify.com/s/files/1/1450/6394/products/57fdde20ee42079cb9f2d92c4aa26fa1_large.jpg?v=1504148026',
+}, {
+    id: 7,
+    name: 'TC 2017 Trucker',
+    description: 'xxx',
+    price: 15.00,
+    count: 15,
+    img: 'https://cdn.shopify.com/s/files/1/1450/6394/products/ATF10010_d4c98428-93a0-4167-97a0-102b7a3133b0_large.png?v=1548013768',
+}, {
+    id: 8,
+    name: 'VC Discraft Disc',
+    description: 'xxx',
+    price: 14.00,
+    count: 19,
+    img: 'https://cdn.shopify.com/s/files/1/1450/6394/products/AJA10008_Black_Tee_0dcd7de8-75b1-4e29-a10a-cb9667c46bf0_large.png?v=1490820305',
+}]
+
+export default loveUAlaskaT;

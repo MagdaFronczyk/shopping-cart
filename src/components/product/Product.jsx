@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import './Product.css';
 
-const Product = ({ title, quantity, price, onClick, text, numberOfProducts }) => (
-  <div>
-    <h2>{title}</h2>
+const Product = ({ name, quantity, price, onClick, text, numberOfProducts, img, description }) => (
+  <div className="product-container">
+    <h2>{name}</h2>
+    <img src={img} alt="" />
+    <p>{description}</p>
     <p>Price: {price}</p>
     <p>{quantity} {numberOfProducts}</p>
     <button onClick={onClick}>{text}</button>

@@ -10,10 +10,6 @@ class Cart extends React.Component {
     this.props.dispatch(removeItemFromCart(item));
   }
 
-  detractPrice = (item) => {
-    this.props.dispatch(detractPrice(item));
-  }
-
   render() {
     const { itemsChosen } = this.props;
     return (
@@ -21,11 +17,11 @@ class Cart extends React.Component {
         <h2>Cart</h2>
         {itemsChosen.filter((el, index) => itemsChosen.indexOf(el) === index).map((item, index) => {
           return (
-            <Product {...item} key={index} text="Remove" onClick={() => { this.removeFromCart(item); this.detractPrice(item) }} numberOfProducts={this.props.itemsChosen.filter(productChosen => productChosen.id === item.id).length} />
+            <Product {...item} key={index} text="Remove" onClick={() => this.removeFromCart(item)} quantity="Quantity" numberOfProducts={this.props.itemsChosen.filter(productChosen => productChosen.id === item.id).length} />
           )
         })}
         <div>
-          <p>Sum:{this.props.sum}</p>
+          <p>Sum:{this.props.itemsChosen.reduce((sum, curr) => sum + curr.price, 0)}</p>
         </div>
       </div>
     )

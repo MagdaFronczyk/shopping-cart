@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-const Product = ({ title, id, price, onClick, text, numberOfProducts }) => (
+const Product = ({ title, quantity, price, onClick, text, numberOfProducts }) => (
   <div>
     <h2>{title}</h2>
     <p>Price: {price}</p>
-    <p>Number of products: {numberOfProducts}</p>
+    <p>{quantity} {numberOfProducts}</p>
     <button onClick={onClick}>{text}</button>
   </div>
 )

@@ -66,17 +66,3 @@ export const removeItemFromCart = itemRemoved => ({
         itemRemoved
     }
 });
-
-export const addPrices = itemAdded => ({
-    type: ADD_PRICES,
-    payload: {
-        itemAdded
-    }
-});
-
-export const detractPrice = itemRemoved => ({
-    type: DETRACT_PRICE,
-    payload: {
-        itemRemoved
-    }
-});

@@ -15,10 +15,6 @@ class ProductList extends React.Component {
         this.props.dispatch(addItemToCart(product));
     }
 
-    addPrices = (product) => {
-        this.props.dispatch(addPrices(product))
-    }
-
     render() {
         const { error, loading, products } = this.props;
 
@@ -33,7 +29,7 @@ class ProductList extends React.Component {
         return (
             <div>
                 {products.map((product, index) => (
-                    <Product {...product} key={index} text="Add" onClick={() => { this.addItemToCart(product); this.addPrices(product) }} numberOfProducts={this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length} />
+                    <Product {...product} key={index} text="Add" onClick={() => this.addItemToCart(product)} />
                 ))}
             </div>
         );

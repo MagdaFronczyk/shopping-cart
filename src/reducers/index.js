@@ -13,7 +13,7 @@ const initialState = {
     loading: false,
     error: null,
     itemsChosen: [],
-    sum: 0
+    // sum: 0
 };
 
 export default function productReducer(
@@ -51,16 +51,6 @@ export default function productReducer(
             return {
                 ...state,
                 itemsChosen: state.itemsChosen.filter((itemChosen, index, array) => array.findIndex(item => item.id === action.payload.itemRemoved.id) !== index)
-            };
-        case ADD_PRICES:
-            return {
-                ...state,
-                sum: state.itemsChosen.reduce((sum, curr) => sum + curr.price, 0),
-            };
-        case DETRACT_PRICE:
-            return {
-                ...state,
-                sum: state.sum - action.payload.itemRemoved.price
             };
         default:
             return state;

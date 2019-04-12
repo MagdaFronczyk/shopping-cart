@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import Product from "../product/Product";
-import { removeItemFromCart, detractPrice } from "../../actions/index";
+import { removeItemFromCart } from "../../actions/index";
 import PropTypes from 'prop-types';
+import LinkButton from '../linkButton/LinkButton'
 
 class Cart extends React.Component {
 
@@ -14,6 +15,7 @@ class Cart extends React.Component {
     const { itemsChosen } = this.props;
     return (
       <div>
+        <LinkButton path="/" label="back" />
         <h2>Cart</h2>
         {itemsChosen.filter((el, index) => itemsChosen.indexOf(el) === index).map((item, index) => {
           return (

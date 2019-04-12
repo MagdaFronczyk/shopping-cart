@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchProducts } from "../../actions/index";
 import Product from "../product/Product";
-import { addItemToCart, addPrices } from "../../actions/index";
+import { addItemToCart } from "../../actions/index";
 import PropTypes from 'prop-types';
-
+import LinkButton from '../linkButton/LinkButton'
 
 class ProductList extends React.Component {
     componentDidMount() {
@@ -31,6 +31,7 @@ class ProductList extends React.Component {
                 {products.map((product, index) => (
                     <Product {...product} key={index} text="Add" onClick={() => this.addItemToCart(product)} />
                 ))}
+                <LinkButton path="/cart" label="cart" />
             </div>
         );
     }

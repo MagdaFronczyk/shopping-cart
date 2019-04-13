@@ -2,3 +2,16 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.product-add-button {
+    border: none;
+    background: rgb(211, 108, 158);
+    padding: 10px 40px;
+    outline: none;
+    border-radius: 15px;
+    transition: 1s;
+}
+
+.product-add-button:hover {
+    background: rgb(207, 75, 139);
+}

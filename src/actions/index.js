@@ -3,9 +3,7 @@ import {
     FETCH_PRODUCTS_SUCCESS,
     FETCH_PRODUCTS_FAILURE,
     ADD_TO_CART,
-    REMOVE_FROM_CART,
-    ADD_PRICES,
-    DETRACT_PRICE
+    REMOVE_FROM_CART
 } from '../constants/action-types'
 
 function getProducts() {

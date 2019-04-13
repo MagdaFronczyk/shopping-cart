@@ -17,7 +17,7 @@ class ProductList extends React.Component {
     }
 
     render() {
-        const { error, loading, products, itemsChosen } = this.props;
+        const { error, loading, products } = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -31,7 +31,7 @@ class ProductList extends React.Component {
             <div>
                 <div className="product-list-container">
                     {products.map((product, index) => (
-                        <Product {...product} key={index} text="Add" onClick={() => this.addItemToCart(product)} />
+                        <Product {...product} key={index} text="Add" onClick={() => this.addItemToCart(product)} type="add" />
                     ))}
                 </div>
                 <Footer />
@@ -43,8 +43,7 @@ class ProductList extends React.Component {
 const mapStateToProps = state => ({
     products: state.products.items,
     loading: state.products.loading,
-    error: state.products.error,
-    itemsChosen: state.products.itemsChosen
+    error: state.products.error
 });
 
 ProductList.propTypes = {

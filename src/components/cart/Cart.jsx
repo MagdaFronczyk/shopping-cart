@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Product from "../product/Product";
 import { removeItemFromCart } from "../../actions/index";
 import PropTypes from 'prop-types';
-import LinkButton from '../linkButton/LinkButton';
+import CartFooter from '../cartFooter/CartFooter';
 import './Cart.css'
 
 class Cart extends React.Component {
@@ -23,23 +23,18 @@ class Cart extends React.Component {
             )
           })}
         </div>
-        <div>
-          <p>Sum:{this.props.itemsChosen.reduce((sum, curr) => sum + curr.price, 0)}</p>
-          <LinkButton path="/" label="back" />
-        </div>
+        <CartFooter />
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  itemsChosen: state.products.itemsChosen,
-  sum: state.products.sum
+  itemsChosen: state.products.itemsChosen
 });
 
 Cart.propTypes = {
-  itemsChosen: PropTypes.array,
-  sum: PropTypes.number
+  itemsChosen: PropTypes.array
 }
 
 export default connect(mapStateToProps)(Cart);

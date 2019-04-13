@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Product from "../product/Product";
 import { addItemToCart } from "../../actions/index";
 import PropTypes from 'prop-types';
-import Footer from '../footer/Footer'
+import ProductListFooter from '../productListFooter/ProductListFooter'
 import './ProductList.css';
 
 class ProductList extends React.Component {
@@ -34,7 +34,7 @@ class ProductList extends React.Component {
                         <Product {...product} key={index} text="Add" onClick={() => this.addItemToCart(product)} type="product-list__" />
                     ))}
                 </div>
-                <Footer />
+                <ProductListFooter />
             </div>
         );
     }

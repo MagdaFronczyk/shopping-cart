@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import Product from "../product/Product";
 import { removeItemFromCart } from "../../actions/index";
 import PropTypes from 'prop-types';
-import LinkButton from '../linkButton/LinkButton'
+import LinkButton from '../linkButton/LinkButton';
+import './Cart.css'
 
 class Cart extends React.Component {
 
@@ -15,15 +16,16 @@ class Cart extends React.Component {
     const { itemsChosen } = this.props;
     return (
       <div>
-        <LinkButton path="/" label="back" />
-        <h2>Cart</h2>
-        {itemsChosen.filter((el, index) => itemsChosen.indexOf(el) === index).map((item, index) => {
-          return (
-            <Product {...item} key={index} text="Remove" onClick={() => this.removeFromCart(item)} quantity="Quantity" numberOfProducts={this.props.itemsChosen.filter(productChosen => productChosen.id === item.id).length} />
-          )
-        })}
+        <div className="cart-container">
+          {itemsChosen.filter((el, index) => itemsChosen.indexOf(el) === index).map((item, index) => {
+            return (
+              <Product {...item} key={index} text="Remove" onClick={() => this.removeFromCart(item)} type="cart__" quantity="Quantity" numberOfProducts={this.props.itemsChosen.filter(productChosen => productChosen.id === item.id).length} />
+            )
+          })}
+        </div>
         <div>
           <p>Sum:{this.props.itemsChosen.reduce((sum, curr) => sum + curr.price, 0)}</p>
+          <LinkButton path="/" label="back" />
         </div>
       </div>
     )

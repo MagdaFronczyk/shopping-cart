@@ -1,9 +1,9 @@
-.product-list-container {
+.cart-container {
     display: flex;
     flex-wrap: wrap;
 }
 
-.product-list__button {
+.cart__button {
     border: none;
     background: rgb(211, 108, 158);
     padding: 10px 40px;
@@ -12,18 +12,18 @@
     transition: 1s;
 }
 
-.product-list__product-container {
+.cart__product-container {
     flex-basis: 33.3%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.product-list__button:hover {
+.cart__button:hover {
     background: rgb(207, 75, 139);
 }
 
-.product-list__img {
+.cart__img {
     height: auto;
     width: 100%;
 }

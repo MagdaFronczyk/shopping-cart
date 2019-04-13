@@ -31,7 +31,7 @@ class ProductList extends React.Component {
             <div>
                 <div className="product-list-container">
                     {products.map((product, index) => (
-                        <Product {...product} key={index} text="Add" onClick={() => this.addItemToCart(product)} type="add" />
+                        <Product {...product} key={index} text="Add" onClick={() => this.addItemToCart(product)} type="product-list__" />
                     ))}
                 </div>
                 <Footer />

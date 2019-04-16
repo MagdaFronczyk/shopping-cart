@@ -18,7 +18,7 @@ const loveUAlaskaT = [{
     description: 'xxx',
     price: 74.00,
     count: 11,
-    img: 'https://cdn.shopify.com/s/files/1/1450/6394/products/b0fed2148915e477c53d143363c615c7_large.png?v=1534095339',
+    img: 'https://cdn.shopify.com/s/files/1/1450/6394/products/DTX10003_black_834669e5-7e16-4237-8759-9668b9cf139d_large.png?v=1500656988',
 }, {
     id: 3,
     name: 'TC 2016 Dark SS',

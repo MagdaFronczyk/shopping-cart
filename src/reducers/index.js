@@ -11,7 +11,35 @@ const initialState = {
     items: loveUalaskaT,
     loading: false,
     error: null,
-    itemsChosen: []
+    itemsChosen: [],
+    inventory: [{
+        id: 0,
+        count: 12
+    }, {
+        id: 1,
+        count: 7
+    }, {
+        id: 2,
+        count: 11
+    }, {
+        id: 3,
+        count: 13,
+    }, {
+        id: 4,
+        count: 16,
+    }, {
+        id: 5,
+        count: 4
+    }, {
+        id: 6,
+        count: 18
+    }, {
+        id: 7,
+        count: 15
+    }, {
+        id: 8,
+        count: 19
+    }]
 };
 
 export default function productReducer(

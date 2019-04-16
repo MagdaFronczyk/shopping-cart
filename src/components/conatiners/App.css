@@ -1,3 +1,5 @@
 body {
-    background-image: url(https://s3.envato.com/files/256500946/05-Confetti-Glitter-Background.jpg)
+    background-image: url(https://s3.envato.com/files/256500946/05-Confetti-Glitter-Background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }

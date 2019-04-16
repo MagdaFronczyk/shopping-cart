@@ -17,7 +17,7 @@ class ProductList extends React.Component {
     }
 
     render() {
-        const { error, loading, products } = this.props;
+        const { error, loading, products, inventory, itemsChosen } = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -31,7 +31,13 @@ class ProductList extends React.Component {
             <div>
                 <div className="product-list-container">
                     {products.map((product, index) => (
-                        <Product {...product} key={index} text="Add" onClick={() => this.addItemToCart(product)} type="product-list__" />
+                        <Product disabled={(inventory.filter(el => el.id === product.id)[0].count - this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length) === 0 ? "true" : null}
+                            {...product}
+                            key={index}
+                            text="Add"
+                            onClick={() => this.addItemToCart(product)}
+                            type="product-list__"
+                            inStock={inventory.filter(el => el.id === product.id)[0].count - this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length} />
                     ))}
                 </div>
                 <ProductListFooter />
@@ -43,7 +49,9 @@ class ProductList extends React.Component {
 const mapStateToProps = state => ({
     products: state.products.items,
     loading: state.products.loading,
-    error: state.products.error
+    error: state.products.error,
+    inventory: state.products.inventory,
+    itemsChosen: state.products.itemsChosen
 });
 
 ProductList.propTypes = {

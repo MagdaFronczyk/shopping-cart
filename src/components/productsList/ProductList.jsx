@@ -6,6 +6,7 @@ import { addItemToCart } from "../../actions/index";
 import PropTypes from 'prop-types';
 import ProductListFooter from '../productListFooter/ProductListFooter'
 import './ProductList.css';
+import '../../../node_modules/sweetalert/dist/sweetalert.css'
 import ReduxSweetAlert, { swal, close } from 'react-redux-sweetalert'; // eslint-disable-line
 
 class ProductList extends Component {
@@ -17,11 +18,7 @@ class ProductList extends Component {
         this.props.addItemToCart(product);
     }
 
-    // alert = () => {
-    //     alert("hhh")
-    // }
-
-    alert = () => {
+    addIdemToCartAlert = () => {
         this.props.swal({
             title: 'Added',
             text: 'Added to cart',
@@ -48,7 +45,7 @@ class ProductList extends Component {
                             {...product}
                             key={index}
                             text="Add"
-                            onClick={() => { this.addItemToCart(product); this.alert() }}
+                            onClick={() => { this.addItemToCart(product); this.addItemToCartAlert() }}
                             type="product-list__"
                             inStock={inventory.filter(el => el.id === product.id)[0].count - this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length} />
                     ))}

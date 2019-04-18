@@ -18,7 +18,7 @@ class ProductList extends Component {
         this.props.addItemToCart(product);
     }
 
-    addIdemToCartAlert = () => {
+    addItemAlert = () => {
         this.props.swal({
             title: 'Added',
             text: 'Added to cart',
@@ -45,7 +45,7 @@ class ProductList extends Component {
                             {...product}
                             key={index}
                             text="Add"
-                            onClick={() => { this.addItemToCart(product); this.addItemToCartAlert() }}
+                            onClick={() => { this.addItemToCart(product); this.addItemAlert() }}
                             type="product-list__"
                             inStock={inventory.filter(el => el.id === product.id)[0].count - this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length} />
                     ))}

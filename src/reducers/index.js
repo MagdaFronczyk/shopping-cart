@@ -23,17 +23,10 @@ const initialState = {
         count: 11
     }, {
         id: 3,
-<<<<<<< HEAD
-        count: 13,
-    }, {
-        id: 4,
-        count: 16,
-=======
         count: 13
     }, {
         id: 4,
         count: 16
->>>>>>> 9bc870989340f6897b402c7b6b09acb60f41ba36
     }, {
         id: 5,
         count: 4

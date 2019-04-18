@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 // import { fetchProducts } from "../../actions/index";
 import Product from "../product/Product";
@@ -6,36 +6,49 @@ import { addItemToCart } from "../../actions/index";
 import PropTypes from 'prop-types';
 import ProductListFooter from '../productListFooter/ProductListFooter'
 import './ProductList.css';
+import ReduxSweetAlert, { swal, close } from 'react-redux-sweetalert'; // eslint-disable-line
 
-class ProductList extends React.Component {
+class ProductList extends Component {
     // componentDidMount() {
     //     this.props.dispatch(fetchProducts());
     // }
 
     addItemToCart = (product) => {
-        this.props.dispatch(addItemToCart(product));
+        this.props.addItemToCart(product);
+    }
+
+    // alert = () => {
+    //     alert("hhh")
+    // }
+
+    alert = () => {
+        this.props.swal({
+            title: 'Added',
+            text: 'Added to cart',
+            onConfirm: this.props.close,
+        })
     }
 
     render() {
-        const { error, loading, products, inventory, itemsChosen } = this.props;
+        const { error, loading, products, inventory } = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
         }
 
         if (loading) {
-            return <div>Loading...</div>;
+            return <div>Loading..</div>;
         }
 
         return (
-            <div>
-                <div className="product-list-container">
+            <div className="product-list">
+                <div className="product-list__container">
                     {products.map((product, index) => (
                         <Product disabled={(inventory.filter(el => el.id === product.id)[0].count - this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length) === 0 ? "true" : null}
                             {...product}
                             key={index}
                             text="Add"
-                            onClick={() => this.addItemToCart(product)}
+                            onClick={() => { this.addItemToCart(product); this.alert() }}
                             type="product-list__"
                             inStock={inventory.filter(el => el.id === product.id)[0].count - this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length} />
                     ))}
@@ -60,4 +73,4 @@ ProductList.propTypes = {
     error: PropTypes.string
 }
 
-export default connect(mapStateToProps)(ProductList);
+export default connect(mapStateToProps, { swal, close, addItemToCart })(ProductList);

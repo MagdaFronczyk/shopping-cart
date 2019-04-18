@@ -1,9 +1,9 @@
-.cart-footer__link-button a {
+.cart_footer__link-button a {
     text-decoration: none;
     color: black;
 }
 
-.cart-footer__link-button {
+.cart_footer__link-button {
     border: none;
     background: rgb(211, 108, 158);
     padding: 10px 40px;
@@ -14,10 +14,10 @@
     margin: 0 auto;
 }
 
-.cart-footer__link-button {
+.cart_footer__link-button {
     background: rgb(207, 75, 139);
 }
 
-.cart-footer__quantity {
+.cart_footer__quantity {
     text-align: center;
 }

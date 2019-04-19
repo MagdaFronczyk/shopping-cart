@@ -18,12 +18,25 @@ class ProductList extends Component {
         this.props.addItemToCart(product);
     }
 
-    addItemAlert = () => {
-        this.props.swal({
-            title: 'Added to cart',
-            onConfirm: this.props.close,
-            confirmButtonColor: "#C8A2C8"
-        })
+    addItemAlert = (product) => {
+
+        console.log(this.props.inventory.filter(el => el.id === product.id)[0].count - this.props.itemsChosen.filter(el => el.id === product.id).length)
+
+        if (this.props.inventory.filter(el => el.id === product.id)[0].count - this.props.itemsChosen.filter(el => el.id === product.id).length > 0) {
+            this.props.swal({
+                title: 'Added to cart',
+                onConfirm: this.props.close,
+                confirmButtonColor: "#C8A2C8",
+                allowOutsideClick: true
+            })
+        } else {
+            this.props.swal({
+                title: "No more in stock",
+                onConfirm: this.props.close,
+                confirmButtonColor: "#C8A2C8",
+                allowOutsideClick: true
+            })
+        }
     }
 
     render() {
@@ -41,11 +54,12 @@ class ProductList extends Component {
             <div className="product-list">
                 <div className="product-list__container">
                     {products.map((product, index) => (
-                        <Product disabled={(inventory.filter(el => el.id === product.id)[0].count - this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length) === 0 ? "true" : null}
+                        <Product
+                            // disabled={(inventory.filter(el => el.id === product.id)[0].count - this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length) === 0 ? true : null}
                             {...product}
                             key={index}
                             text="Add"
-                            onClick={() => { this.addItemToCart(product); this.addItemAlert() }}
+                            onClick={() => { this.addItemToCart(product); this.addItemAlert(product) }}
                             type="product-list__"
                             inStock={inventory.filter(el => el.id === product.id)[0].count - this.props.itemsChosen.filter(productChosen => productChosen.id === product.id).length} />
                     ))}

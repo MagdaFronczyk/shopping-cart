@@ -7,7 +7,7 @@ const Product = ({ name, quantity, price, onClick, text, numberOfProducts, img, 
     <img src={img} alt="" className={`${type}img`} />
     <p>{description}</p>
     <p>Price: {price}</p>
-    <p>In stock: {inStock}</p>
+    {/* <p>In stock: {inStock}</p> */}
     <p>{quantity} {numberOfProducts}</p>
     <button disabled={disabled} onClick={onClick} className={`${type}button`}>{text}</button>
   </div>

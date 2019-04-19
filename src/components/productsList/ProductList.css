@@ -7,10 +7,14 @@
 .product-list__button {
     border: none;
     background: rgb(211, 108, 158);
-    padding: 10px 40px;
+    padding: 10px 32px;
     outline: none;
-    border-radius: 15px;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
     transition: 1s;
+    cursor: pointer;
+    font-size: 17px;
 }
 
 .product-list__product-container {

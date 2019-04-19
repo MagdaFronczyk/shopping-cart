@@ -20,9 +20,9 @@ class ProductList extends Component {
 
     addItemAlert = () => {
         this.props.swal({
-            title: 'Added',
-            text: 'Added to cart',
+            title: 'Added to cart',
             onConfirm: this.props.close,
+            confirmButtonColor: "#C8A2C8"
         })
     }
 
